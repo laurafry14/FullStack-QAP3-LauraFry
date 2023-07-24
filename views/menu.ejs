@@ -1,0 +1,26 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="menu content">
+            <form action="/menu" method="POST">
+                <b>Menu: </b></br> 
+            <% if (theMenu.length > 0) { %>
+                <% theMenu.forEach(pizza => { %>
+                    <b><%= pizza.name %> <%= pizza.name %></b>
+                    <a href="/menu/<%=pizza._id%>/edit?name=<%=pizza.name%>">edit</a>
+                    <a href="/menu/<%=pizza._id%>/delete?name=<%=pizza.name%>">delete</a>
+                    <a href="/menu/<%=pizza._id%>/replace?name=<%=pizza.name%>">replace</a></br> 
+                    <% }) %>
+            <% } %>
+            </br><label>Add Pizza:</label></br>
+            <label> Name:
+                <!-- <input type="text" id="firstName" name="firstName" value="<%= locals.firstName %>" required> -->
+            </label>
+            </br>
+            <button>POST</button>
+        </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
