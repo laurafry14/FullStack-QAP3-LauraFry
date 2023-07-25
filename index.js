@@ -16,6 +16,9 @@ app.get("/", (req, res) => {
 const menuRouter = require("./routes/menu");
 app.use("/menu", menuRouter);
 
+const ingredientsRouter = require("./routes/ingredients");
+app.use("/ingredients", ingredientsRouter);
+
 // anything beginning with "/api" will go into this
 const apiRouter = require("./routes/api");
 app.use("/api", apiRouter);
