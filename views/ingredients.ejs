@@ -1,0 +1,21 @@
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="actors content">
+            <form action="/ingredients" method="POST">
+                <b>Ingredients: </b></br> <hr>
+            <% if (theIngredients.length > 0) { %>
+                <% theIngredients.forEach(ingredient => { %>
+                    <b><%= ingredient.name %></b></br> 
+                    <!-- <a href="/ingredients/<%=ingredient._id%>/edit?name=<%=ingredient.name%>">edit</a>
+                    <a href="/ingredients/<%=ingredient._id%>/delete?name=<%=ingredient.name%>">delete</a>
+                    <a href="/ingredients/<%=ingredient._id%>/replace?name=<%=ingredient.name%>">replace</a></br>  -->
+                    <% }) %>
+            <% } %>
+            </br>
+        </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html>
