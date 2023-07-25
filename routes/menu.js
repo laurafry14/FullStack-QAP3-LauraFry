@@ -30,6 +30,14 @@ router.get("/:id/replace", async (req, res) => {
   });
 });
 
+router.get("/:id/edit", async (req, res) => {
+  if (DEBUG) console.log("menu.Edit : " + req.params.id);
+  res.render("pizzaPatch.ejs", {
+    name: req.query.name,
+    theId: req.params.id,
+  });
+});
+
 router.get("/:id/delete", async (req, res) => {
   if (DEBUG) console.log("menu.Delete : " + req.params.id);
   res.render("pizzaDelete.ejs", {
@@ -54,6 +62,17 @@ router.put("/:id", async (req, res) => {
   if (DEBUG) console.log("menu.PUT: " + req.params.id);
   try {
     await pizzasDal.putPizzas(req.params.id, req.body.name);
+    res.redirect("/menu/");
+  } catch {
+    // log this error to an error log file.
+    res.render("503");
+  }
+});
+
+router.patch("/:id", async (req, res) => {
+  if (DEBUG) console.log("menu.PATCH: " + req.params.id);
+  try {
+    await pizzasDal.patchPizza(req.params.id, req.body.name);
     res.redirect("/menu/");
   } catch {
     // log this error to an error log file.

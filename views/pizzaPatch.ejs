@@ -3,11 +3,11 @@
     <body>
         <%- include('./partials/nav.ejs') %>
         <div class="create content">
-            <form action="/menu/<%= locals.theId %>?_method=PUT" method="POST">
-                <label>Replace Pizza Name:</br>
+            <form action="/menu/<%= locals.theId %>?_method=PATCH" method="POST">
+                <label>Edit Pizza Name:</br>
                     <input type="text" name="name" value="<%= locals.name %>" required>
                 </label></br>
-                <button>PUT</button>
+                <button>PATCH</button>
             </form>
         </div>
     </body>

@@ -65,10 +65,24 @@ var putPizzas = function (id, name) {
   });
 };
 
+var patchPizza = function (id, name) {
+  if (DEBUG) console.log("menu.pg.dal.patchActor()");
+  return new Promise(function (resolve, reject) {
+    const sql = "UPDATE public.pizzas SET name=$2 WHERE pizza_id=$1;";
+    dal.query(sql, [id, name], (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result.rows);
+      }
+    });
+  });
+};
+
 var deletePizza = function (id) {
   if (DEBUG) console.log("menu.pg.dal.deletePizza()");
   return new Promise(function (resolve, reject) {
-    const sql = "DELETE FROM public.pizza WHERE pizza_id = $1;";
+    const sql = "DELETE FROM public.pizzas WHERE pizza_id = $1;";
     dal.query(sql, [id], (err, result) => {
       if (err) {
         reject(err);
@@ -84,5 +98,6 @@ module.exports = {
   getPizzaByPizzaId,
   addPizzas,
   putPizzas,
+  patchPizza,
   deletePizza,
 };
