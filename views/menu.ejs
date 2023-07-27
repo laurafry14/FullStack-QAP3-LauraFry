@@ -13,12 +13,13 @@
                     <a href="/menu/<%=pizza._id%>/replace?name=<%=pizza.name%>">replace</a></br> 
                     <% }) %>
             <% } %>
-            </br><label>Add Pizza:</label></br>
+            <hr>
+            </br><b>Add Pizza:</b></br>
             <label> Name:
                 <input type="text" id="name" name="name" value="<%= locals.name %>" required>
             </label>
             </br>
-            <button>POST</button>
+            <button>Add</button>
         </form>
         </div>
     </body>

@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+
+body {
+  background-color: rgb(27, 35, 35);
+  color: antiquewhite;
+  font-family: "Italiana", serif;
+}
+
+.header {
+  display: flex;
+}
+
+img {
+  margin-right: 10px;
+}
+
+a {
+  color: rgb(116, 113, 113);
+  text-align: center;
+}
+
+a:hover {
+  color: red;
+}

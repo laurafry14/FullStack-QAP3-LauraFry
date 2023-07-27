@@ -8,12 +8,10 @@
             <% if (theIngredients.length > 0) { %>
                 <% theIngredients.forEach(ingredient => { %>
                     <b><%= ingredient.name %></b></br> 
-                    <!-- <a href="/ingredients/<%=ingredient._id%>/edit?name=<%=ingredient.name%>">edit</a>
-                    <a href="/ingredients/<%=ingredient._id%>/delete?name=<%=ingredient.name%>">delete</a>
-                    <a href="/ingredients/<%=ingredient._id%>/replace?name=<%=ingredient.name%>">replace</a></br>  -->
                     <% }) %>
             <% } %>
             </br>
+            <hr>
         </form>
         </div>
     </body>
