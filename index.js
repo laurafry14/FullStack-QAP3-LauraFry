@@ -23,6 +23,8 @@ app.use("/ingredients", ingredientsRouter);
 const apiRouter = require("./routes/api");
 app.use("/api", apiRouter);
 
+app.use("/public", express.static("public"));
+
 app.use((req, res) => {
   res.status(404).render("404");
 });

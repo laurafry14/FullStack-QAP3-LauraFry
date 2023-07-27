@@ -18,6 +18,23 @@ var getPizzas = function () {
   });
 };
 
+var getDescriptions = function () {
+  if (DEBUG) console.log("menu.pg.dal.getDescriptions()");
+  return new Promise(function (resolve, reject) {
+    const sql =
+      "SELECT pizza_id AS _id, description FROM pizzas \
+        ORDER BY pizza_id;";
+    dal.query(sql, [], (err, result) => {
+      if (err) {
+        // if (DEBUG) console.log(err);
+        reject(err);
+      } else {
+        resolve(result.rows);
+      }
+    });
+  });
+};
+
 var getPizzaByPizzaId = function (id) {
   if (DEBUG) console.log("menu.pg.dal.getPizzaByPizzaId()");
   return new Promise(function (resolve, reject) {
@@ -95,6 +112,7 @@ var deletePizza = function (id) {
 
 module.exports = {
   getPizzas,
+  getDescriptions,
   getPizzaByPizzaId,
   addPizzas,
   putPizzas,
